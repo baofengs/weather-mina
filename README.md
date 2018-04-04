@@ -6,7 +6,6 @@ Weacher Mina
 ├── README.md
 ├── app
 │   ├── app.js
-│   ├── node_modules
 │   ├── package-lock.json
 │   └── package.json
 └── mina
