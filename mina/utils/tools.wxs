@@ -1,0 +1,72 @@
+var formatTime =  function (date, type) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    var dateStr = [year, month, day].map(formatNumber).join('/');
+    var timeStr = [hour, minute].map(formatNumber).join(':');
+    var ret = '';
+    switch (type) {
+        case 1:
+            ret = dateStr;
+            break;
+        case 2:
+            ret = timeStr;
+        break;
+        default :
+            ret = dateStr + ' ' + timeStr;
+    }
+    return ret;
+}
+
+var formatNumber = function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+}
+
+var compressImg = function(code) {
+    return 'http://weixin.jirengu.com/images/weather/code/' + code + '.png'
+}
+
+var formateDate = function (date, type) {
+    return formatTime(getDate(date), type);
+}
+
+var butiDate = function (date) {
+    var date = getDate(date);
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var weekday = date.getDay();
+    var dayStr = getDaysStr(weekday, day);
+    return dayStr + ' ' + month + '/' + day;
+}
+
+var getDaysStr = function (day, date) {
+    var now = getDate();
+    var curDay = now.getDate();
+    var dayStr = '';
+    if (date == curDay) {
+        dayStr = '今天';
+    } else if (date == curDay - 1) {
+        dayStr = '昨天';
+    } else if (date == curDay + 1) {
+        dayStr = '明天';
+    } else {
+        dayStr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][day];
+    }
+    return dayStr;
+}
+
+var butiTemperature = function (temperature) {
+    return temperature ? temperature + '°' : '';
+}
+
+// module.exports.compressImg = compressImg;
+module.exports = {
+    compressImg: compressImg,
+    formateDate: formateDate,
+    butiDate: butiDate,
+    butiTemperature: butiTemperature
+}

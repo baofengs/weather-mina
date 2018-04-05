@@ -1,62 +1,94 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="header">
+    <view class="header" wx:if="{{city}}">
         <view class="city-name">{{city}}</view>
-        <!-- <view class="options">🔨</view> -->
     </view>
-    <view class="weather-today">
-        <view class="text">{{weather.now.text}}</view>
-        <view class="temperature">{{weather.now.temperature}}</view>
-        <view class="air-quality">
-            <view class="pm25">{{weather.air.pm25}}</view>
-            <view class="quality">{{weather.air.quality}}</view>
-        </view>
-    </view>
-    <view class="section">
-        <view class="flex-wrp">
-            <scroll-view scroll-x="true">
-                <view class="flex-item" wx:for="{{todayHourly}}" wx:key="index">
-                    <view class="today-hourly-wrap">
-                        <view>{{item.text}}</view>
-                        <view>{{item.temperature}}</view>
+    <view class="main-wrapper" wx:if="{{!loading}}" style="opacity: 1;">
+        <scroll-view scroll-y bindscroll="scroll" class="main-scroll-y" enable-back-to-top="true" bindscrolltoupper="scrollToTop">
+            <view class="section weather-today" bindscroll="scroll">
+                <view class="text">{{weather.now.text}}</view>
+                <view class="temperature">{{util.butiTemperature(weather.now.temperature)}}</view>
+                <view class="air-quality">
+                    <view class="pm25">{{weather.air.pm25}}</view>
+                    <view class="quality">{{weather.air.quality}}</view>
+                </view>
+            </view>
+            <view class="section">
+                <view class="flex-wrp">
+                    <view class="flex-item short-forecast-wrapper">
+                        <view class="today-hourly-wrap">
+                            <view class="short-forecast-icon">
+                                <icon class="iconfont icon-clock"></icon>
+                            </view>
+                            <view class="short-forecast">整点天气</view>
+                        </view>
+                    </view>
+                    <scroll-view scroll-x="true" class="hourly-scroll">
+                        <view class="flex-item" wx:for="{{todayHourly}}" wx:key="index">
+                            <view class="today-hourly-wrap">
+                                <view>{{util.formateDate(item.time, 2)}}</view>
+                                <view>
+                                    <image class="hourly-img" src="{{util.compressImg(item.code)}}"></image>
+                                </view>
+                                <view>{{item.text}}</view>
+                                <view>{{util.butiTemperature(item.temperature)}}</view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <view class="section split-line"></view>
+            <view class="section">
+                <view class="weather-future" wx:for="{{weather.future}}" wx:key="index">
+                    <view>{{util.butiDate(item.date)}}</view>
+                    <view class="weather-desc-wrapper">
+                        <image class="day-img" src="{{util.compressImg(item.code1)}}"></image>
+                        <text class="day-text">{{item.text}}</text>
+                    </view>
+                    <view class="weather-temperature">{{util.butiTemperature(item.high)}} ~ {{util.butiTemperature(item.low)}}</view>
+                </view>
+            </view>
+            <view class="section split-line"></view>
+            <view class="section">
+                <view class="suggestions">
+                    <view class="suggestion-item dressing">
+                        <icon class="iconfont icon-clothing"></icon>
+                        <view>穿衣指数</view>
+                        <view>{{weather.suggestion.dressing.brief}}</view>
+                    </view>
+                    <view class="suggestion-item uv">
+                        <icon class="iconfont icon-uv"></icon>
+                        <view>紫外线指数</view>
+                        <view>{{weather.suggestion.uv.brief}}</view>
+                    </view>
+                    <view class="suggestion-item car-washing">
+                        <icon class="iconfont icon-car"></icon>
+                        <view>洗车指数</view>
+                        <view>{{weather.suggestion.car_washing.brief}}</view>
+                    </view>
+                    <view class="suggestion-item travel">
+                        <icon class="iconfont icon-fishing"></icon>
+                        <view>出行指数</view>
+                        <view>{{weather.suggestion.travel.brief}}</view>
+                    </view>
+                    <view class="suggestion-item flu">
+                        <icon class="iconfont icon-temperature"></icon>
+                        <view>感冒指数</view>
+                        <view>{{weather.suggestion.flu.brief}}</view>
+                    </view>
+                    <view class="suggestion-item sport">
+                        <icon class="iconfont icon-sport"></icon>
+                        <view>运动指数</view>
+                        <view>{{weather.suggestion.sport.brief}}</view>
                     </view>
                 </view>
-            </scroll-view>
+            </view>
+        </scroll-view>
+    </view>
+    <view wx:if="{{loading}}" class="loading">
+        <view>
+            loading...
         </view>
     </view>
-    <view class="section">
-        <view class="weather-future" wx:for="{{weather.future}}" wx:key="index">
-            <view>{{item.date}}</view>
-            <view>{{item.text}}</view>
-            <view>{{item.high}} ~ {{item.low}}</view>
-        </view>
-    </view>
-    <view class="section">
-        <view class="suggestions">
-            <view class="suggestion-item dressing">
-                <view>穿衣</view>
-                <view>{{weather.suggestion.dressing.brief}}</view>
-            </view>
-            <view class="suggestion-item uv">
-                <view>紫外线</view>
-                <view>{{weather.suggestion.uv.brief}}</view>
-            </view>
-            <view class="suggestion-item car-washing">
-                <view>洗车</view>
-                <view>{{weather.suggestion.car_washing.brief}}</view>
-            </view>
-            <view class="suggestion-item travel">
-                <view>出行</view>
-                <view>{{weather.suggestion.travel.brief}}</view>
-            </view>
-            <view class="suggestion-item flu">
-                <view>感冒</view>
-                <view>{{weather.suggestion.flu.brief}}</view>
-            </view>
-            <view class="suggestion-item sport">
-                <view>运动</view>
-                <view>{{weather.suggestion.sport.brief}}</view>
-            </view>
-        </view>
-    </view>
+    <wxs src="../../utils/tools.wxs" module="util" />
 </view>

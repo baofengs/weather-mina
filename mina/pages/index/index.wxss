@@ -1,5 +1,62 @@
+@font-face {
+    font-family: 'iconfont';
+    /* project id 617340 */
+    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot');
+    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.woff') format('woff'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.ttf') format('truetype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont";
+    font-style: normal;
+    color: #9e9595;
+}
+
+.icon-clothing:before {
+    content: "\e655";
+    font-size: 100rpx;
+    color: #FF4081;
+}
+
+.icon-sport:before {
+    content: "\e936";
+    font-size: 100rpx;
+    color: #FF9800;
+}
+
+.icon-fishing:before {
+    content: "\e663";
+    font-size: 100rpx;
+    font-weight: 600;
+    color: #00BCD4;
+}
+
+.icon-uv:before {
+    content: "\e878";
+    font-size: 100rpx;
+    color: #673AB7;
+}
+
+.icon-car:before {
+    content: "\e63a";
+    font-size: 100rpx;
+    color: #03A9F4;
+}
+
+.icon-temperature:before {
+    content: "\e63f";
+    font-size: 100rpx;
+    color: #FFC107;
+}
+
+.icon-clock:before {
+    content: "\e605";
+    font-size: 60rpx;
+    color: #333;
+}
+
 .container {
     font-size: 14px;
+    color: #212121;
 }
 
 .header {
@@ -11,6 +68,29 @@
     background: #fff;
     padding: 20rpx 0;
     z-index: 999;
+    box-shadow: 0px 2px 10px -4px rgba(0, 0, 0, 0.12);
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.show-in {
+    opacity: 1 !important;
+}
+
+.main-wrapper {
+    height: 100vh;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 3s;
+}
+
+.main-wrapper .main-scroll-y {
+    height: 100%;
 }
 
 .header .city-name {
@@ -37,12 +117,13 @@
 .weather-today .air-quality {
     display: flex;
     border: 1px solid #212121;
-    padding: 10rpx 20rpx;
-    border-radius: 5rpx;
+    padding: 0rpx 20rpx;
+    border-radius: 30rpx;
+    font-size: 12px;
 }
 
-.scroll-item {
-    border: 1px solid red;
+.weather-today .air-quality .pm25 {
+    margin-right: 10rpx;
 }
 
 .flex-wrp {
@@ -53,14 +134,20 @@
 
 .flex-item {
     display: inline-block;
-    width: 100px;
-    height: 100px;
-    border: 1px solid;
+    padding: 10rpx;
+    border-right: 0;
+    margin-right: 20rpx;
 }
 
-scroll-view {
+.hourly-scroll {
     width: 100%;
     white-space: nowrap;
+}
+
+.split-line {
+    width: 80%;
+    margin: 20rpx auto;
+    border-top: 1rpx solid rgba(0, 0, 0, 0.12);
 }
 
 .today-hourly-wrap {
@@ -68,7 +155,28 @@ scroll-view {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    width: 120rpx;
+}
+
+.short-forecast-wrapper {
+    box-shadow: 10px 0px 10px -10px rgba(0, 0, 0, 0.12);
+    padding: 25rpx;
+    margin-right: 0;
+}
+
+.short-forecast-wrapper .short-forecast-icon {
+    margin-top: 30rpx;
+}
+
+.flex-item .short-forecast {
+    text-align: center;
+    width: 75px;
+    margin-top: 20rpx;
+}
+
+.today-hourly-wrap .hourly-img {
+    width: 45px;
+    height: 45px;
 }
 
 .weather-future {
@@ -77,16 +185,53 @@ scroll-view {
     padding: 20rpx 25rpx;
 }
 
+.weather-future>view {
+    width: 33.33333%;
+    flex: 1;
+}
+
+.weather-future .weather-desc-wrapper {
+    text-align: left;
+}
+
+.weather-future .weather-temperature {
+    width: 4em;
+    text-align: right;
+}
+
+.weather-future .day-img {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.weather-future .day-text {
+    width: 5em;
+    display: inline-block;
+    text-align: left;
+    padding-left: 20rpx;
+}
+
 .suggestions {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10rpx;
+    margin: 20rpx 0;
+    /* background: #eee; */
 }
 
 .suggestion-item {
     box-sizing: border-box;
     text-align: center;
     padding: 10rpx;
-    border: 1px solid;
-    width: 33.3333%;
+    width: calc(33.3333%);
+}
+
+.suggestion-item view:nth-child(2) {
+    color: #999;
+    margin: 1em 0 0 .5em;
+}
+
+.suggestion-item view:nth-child(3) {
+    color: #212121;
 }
