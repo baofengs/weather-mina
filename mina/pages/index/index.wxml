@@ -24,7 +24,7 @@
                         </view>
                     </view>
                     <scroll-view scroll-x="true" class="hourly-scroll">
-                        <view class="flex-item" wx:for="{{todayHourly}}" wx:key="index">
+                        <view class="flex-item" wx:for="{{weather.todayHourly}}" wx:key="index">
                             <view class="today-hourly-wrap">
                                 <view>{{util.formateDate(item.time, 2)}}</view>
                                 <view>

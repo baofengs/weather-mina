@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.93",
-	"appid": "wx8fa3d63b0377f1aa",
-	"projectname": "weather-mina",
+	"appid": "touristappid",
+	"projectname": "weather-mina-localhost",
 	"condition": {
 		"search": {
 			"current": -1,
