@@ -52,6 +52,8 @@ app.get('/all', function (req, res) {
     const city = req.query.city || 'beijing';
     Promise.all([getWeather(city), getHourly(city)]).then(data => {
         res.send({
+            code: 0,
+            msg: 'success',
             data: data[0].weather[0],
             hourly: data[1].hourly
         });
