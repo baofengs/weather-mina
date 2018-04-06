@@ -1,59 +1,4 @@
-@font-face {
-    font-family: 'iconfont';
-    /* project id 617340 */
-    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot');
-    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.woff') format('woff'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.ttf') format('truetype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.svg#iconfont') format('svg');
-}
-
-.iconfont {
-    font-family: "iconfont";
-    font-style: normal;
-    color: #9e9595;
-}
-
-.icon-clothing:before {
-    content: "\e655";
-    font-size: 100rpx;
-    color: #FF4081;
-}
-
-.icon-sport:before {
-    content: "\e936";
-    font-size: 100rpx;
-    color: #FF9800;
-}
-
-.icon-fishing:before {
-    content: "\e663";
-    font-size: 100rpx;
-    font-weight: 600;
-    color: #00BCD4;
-}
-
-.icon-uv:before {
-    content: "\e878";
-    font-size: 100rpx;
-    color: #673AB7;
-}
-
-.icon-car:before {
-    content: "\e63a";
-    font-size: 100rpx;
-    color: #03A9F4;
-}
-
-.icon-temperature:before {
-    content: "\e63f";
-    font-size: 100rpx;
-    color: #FFC107;
-}
-
-.icon-clock:before {
-    content: "\e605";
-    font-size: 60rpx;
-    color: #333;
-}
-
+@import '../../assets/font.wxss';
 .container {
     font-size: 14px;
     color: #212121;
@@ -103,11 +48,12 @@
 }
 
 .weather-today {
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
 }
 
 .weather-today .temperature {
@@ -119,7 +65,8 @@
     border: 1px solid #212121;
     padding: 0rpx 20rpx;
     border-radius: 30rpx;
-    font-size: 12px;
+    font-size: 18px;
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, .12);
 }
 
 .weather-today .air-quality .pm25 {
@@ -234,4 +181,10 @@
 
 .suggestion-item view:nth-child(3) {
     color: #212121;
+}
+
+.cmp-dlg-header {
+    padding: 20rpx 0;
+    text-align: center;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .12);
 }

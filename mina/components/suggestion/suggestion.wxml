@@ -1,0 +1,8 @@
+<view class="cmp-suggestion" style="border: 1px solid;">
+    <dialog title="{{title}}" bind:close="close" my-class="{{myClass}}">
+        <view slot="content">
+            <view class="cmp-suggestion-content-brief">{{info.brief}}</view>
+            <view class="cmp-suggestion-content-detail">{{info.details}}</view>
+        </view>
+    </dialog>
+</view>

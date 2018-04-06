@@ -63,7 +63,6 @@ var butiTemperature = function (temperature) {
     return temperature ? temperature + '°' : '';
 }
 
-// module.exports.compressImg = compressImg;
 module.exports = {
     compressImg: compressImg,
     formateDate: formateDate,

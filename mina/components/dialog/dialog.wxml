@@ -1,0 +1,10 @@
+<view class="cmp-dlg">
+    <view class="cmp-dlg-mask"></view>
+    <view class="cmp-dlg-wrapper">
+        <view class="my-class">{{title}}</view>
+        <view class="section cmp-dlg-content">
+            <slot></slot>
+        </view>
+    </view>
+    <view class="cmp-dlg-close" bind:tap="close">x</view>
+</view>

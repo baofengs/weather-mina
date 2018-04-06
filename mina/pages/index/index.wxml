@@ -8,8 +8,8 @@
             <view class="section weather-today" bindscroll="scroll">
                 <view class="text">{{weather.now.text}}</view>
                 <view class="temperature">{{util.butiTemperature(weather.now.temperature)}}</view>
-                <view class="air-quality">
-                    <view class="pm25">{{weather.air.pm25}}</view>
+                <view class="air-quality" data-title="空气指数" data-info="{{weather.air}}" bind:tap="showAir">
+                    <view class="pm25">{{weather.air.aqi}}</view>
                     <view class="quality">{{weather.air.quality}}</view>
                 </view>
             </view>
@@ -52,32 +52,32 @@
             <view class="section">
                 <view class="suggestions">
                     <view class="suggestion-item dressing">
-                        <icon class="iconfont icon-clothing"></icon>
+                        <icon class="iconfont icon-clothing" data-class="suggestion-clothing" data-info="{{weather.suggestion.dressing}}" data-title="穿衣指数" bind:tap="showSuggestion"></icon>
                         <view>穿衣指数</view>
                         <view>{{weather.suggestion.dressing.brief}}</view>
                     </view>
                     <view class="suggestion-item uv">
-                        <icon class="iconfont icon-uv"></icon>
+                        <icon class="iconfont icon-uv" data-class="suggestion-uv" data-info="{{weather.suggestion.uv}}" data-title="紫外线指数" bind:tap="showSuggestion"></icon>
                         <view>紫外线指数</view>
                         <view>{{weather.suggestion.uv.brief}}</view>
                     </view>
                     <view class="suggestion-item car-washing">
-                        <icon class="iconfont icon-car"></icon>
+                        <icon class="iconfont icon-car" data-class="suggestion-car-washing" data-info="{{weather.suggestion.car_washing}}" data-title="洗车指数" bind:tap="showSuggestion"></icon> 
                         <view>洗车指数</view>
                         <view>{{weather.suggestion.car_washing.brief}}</view>
                     </view>
                     <view class="suggestion-item travel">
-                        <icon class="iconfont icon-fishing"></icon>
+                        <icon class="iconfont icon-fishing" data-class="suggestion-travel" data-info="{{weather.suggestion.travel}}" data-title="出行指数" bind:tap="showSuggestion"></icon>
                         <view>出行指数</view>
                         <view>{{weather.suggestion.travel.brief}}</view>
                     </view>
                     <view class="suggestion-item flu">
-                        <icon class="iconfont icon-temperature"></icon>
+                        <icon class="iconfont icon-temperature" data-class="suggestion-temperature" data-info="{{weather.suggestion.flu}}" data-title="感冒指数" bind:tap="showSuggestion"></icon>
                         <view>感冒指数</view>
                         <view>{{weather.suggestion.flu.brief}}</view>
                     </view>
                     <view class="suggestion-item sport">
-                        <icon class="iconfont icon-sport"></icon>
+                        <icon class="iconfont icon-sport" data-class="suggestion-sport" data-info="{{weather.suggestion.sport}}" data-title="运动指数" bind:tap="showSuggestion"></icon>
                         <view>运动指数</view>
                         <view>{{weather.suggestion.sport.brief}}</view>
                     </view>
@@ -90,5 +90,7 @@
             loading...
         </view>
     </view>
-    <wxs src="../../utils/tools.wxs" module="util" />
+    <suggestion wx:if="{{suggestionStatus}}" info="{{suggestInfo}}" title="{{suggestTitle}}" my-class="{{suggestTitleClss}}" bind:close="closeSuggestion"></suggestion>
+    <air wx:if="{{airStatus}}" info="{{airInfo}}" title="{{airTitle}}" my-class="{{airTitleClss}}" bind:close="closeAir"></air>
+    <wxs src="../../lib/filters/tools.wxs" module="util" />
 </view>

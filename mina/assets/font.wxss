@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'iconfont';
+    /* project id 617340 */
+    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot');
+    src: url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.woff') format('woff'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.ttf') format('truetype'), url('//at.alicdn.com/t/font_617340_b5pnit2z7lihehfr.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont";
+    font-style: normal;
+    color: #9e9595;
+}
+
+.icon-clothing:before {
+    content: "\e655";
+    font-size: 100rpx;
+    color: #FF4081;
+}
+
+.icon-sport:before {
+    content: "\e936";
+    font-size: 100rpx;
+    color: #FF9800;
+}
+
+.icon-fishing:before {
+    content: "\e663";
+    font-size: 100rpx;
+    font-weight: 600;
+    color: #00BCD4;
+}
+
+.icon-uv:before {
+    content: "\e878";
+    font-size: 100rpx;
+    color: #673AB7;
+}
+
+.icon-car:before {
+    content: "\e63a";
+    font-size: 100rpx;
+    color: #03A9F4;
+}
+
+.icon-temperature:before {
+    content: "\e63f";
+    font-size: 100rpx;
+    color: #FFC107;
+}
+
+.icon-clock:before {
+    content: "\e605";
+    font-size: 60rpx;
+    color: #333;
+}

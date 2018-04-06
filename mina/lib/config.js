@@ -1,9 +1,9 @@
 export default {
-    env: 'localhost',
+    env: 'prod',
     localhost: {
         url: 'http://localhost:8999/all'
     },
     prod: {
-        url: 'https://weather.sanbf.cn',
+        url: 'https://weather.sanbf.cn/all',
     }
 }

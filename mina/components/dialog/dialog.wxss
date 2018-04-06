@@ -1,0 +1,44 @@
+.cmp-dlg-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, .6);
+    z-index: 0;
+}
+
+.cmp-dlg-wrapper {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .12);
+    z-index: 999;
+    width: 450rpx;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.cmp-dlg-content {
+    padding: 25rpx 35rpx;
+    font-size: 16px;
+    color: #212121;
+}
+
+.cmp-dlg-close {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90rpx;
+    height: 90rpx;
+    color: #212121;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    background: rgba(255, 255, 255, .6);
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 40px;
+}

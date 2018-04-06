@@ -1,0 +1,46 @@
+<view class="cmp-air">
+    <dialog title="{{title}}" bind:close="close" my-class="{{myClass}}">
+        <view slot="content">
+            <view class="cmp-air-aqi">
+                <view class="cmp-air-aqi-info">{{info.aqi}}</view>
+                <view class="cmp-air-aqi-quality">{{info.quality}}</view>
+            </view>
+            <view class="cmp-air-list">
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">CO</view>
+                    <view class="cmp-air-info">{{info.co}}</view>
+                </view>
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">NO
+                        <text class="sub">2</text>
+                    </view>
+                    <view class="cmp-air-info">{{info.no2}}</view>
+                </view>
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">O
+                        <text class="sub">3</text>
+                    </view>
+                    <view class="cmp-air-info">{{info.o3}}</view>
+                </view>
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">PM
+                        <text class="sub">10</text>
+                    </view>
+                    <view class="cmp-air-info">{{info.pm10}}</view>
+                </view>
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">PM
+                        <text class="sub">2.5</text>
+                    </view>
+                    <view class="cmp-air-info">{{info.pm25}}</view>
+                </view>
+                <view class="cmp-air-content">
+                    <view class="cmp-air-label">SO
+                        <text class="sub">2</text>
+                    </view>
+                    <view class="cmp-air-info">{{info.so2}}</view>
+                </view>
+            </view>
+        </view>
+    </dialog>
+</view>

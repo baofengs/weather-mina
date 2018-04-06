@@ -10,7 +10,15 @@ Page({
         loading: true,
         cityName: '',
         opacity: 0,
-        showIn: ''
+        showIn: '',
+        suggestionStatus: false,
+        suggestInfo: {},
+        suggestTitle: '',
+        suggestTitleClss: '',
+        airStatus: false,
+        airTitle: '',
+        airInfo: {},
+        airTitleClss: ''
     },
     onPullDownRefresh: function () {
         this.getWeather(this.city);
@@ -23,11 +31,34 @@ Page({
     scrollToTop: function(e) {
         // console.log('top: ', e);
     },
-    //事件处理函数
-    bindViewTap: function () {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
+    showSuggestion: function (e) {
+        const data = e.currentTarget.dataset;
+        this.setData({
+            suggestionStatus: true,
+            suggestTitle: data.title,
+            suggestInfo: data.info,
+            suggestTitleClss: data.class + ' section cmp-dlg-header'
+        });
+    },
+    closeSuggestion: function (e) {
+        this.setData({
+            suggestionStatus: false
+        });
+    },
+    showAir: function (e) {
+        console.log('show Air...');
+        const data = e.currentTarget.dataset;
+        this.setData({
+            airStatus: true,
+            airTitle: data.title,
+            airInfo: data.info,
+            airTitleClss: 'section cmp-dlg-header'
+        });
+    },
+    closeAir: function (e) {
+        this.setData({
+            airStatus: false
+        });
     },
     onLoad: function () {
         this.getLocation()
@@ -51,6 +82,7 @@ Page({
         getWeather(city)
             .then(res => {
                 const data = res.data;
+                console.log(data);
                 const hourly = res.hourly;
                 this.setData({
                     weather: {

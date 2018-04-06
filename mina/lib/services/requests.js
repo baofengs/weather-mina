@@ -58,21 +58,21 @@ export const getCityByLocation = (l) => {
         key: 'RVSBZ-ETTHF-DU7JS-N4L73-C5F7V-UHFN6'
     });
     return new Promise((resolve, reject) => {
-        const addressRes = {
-            result: {
-                address_component: {
-                    city: '武汉'
-                }
-            }
-        };
+        // const addressRes = {
+        //     result: {
+        //         address_component: {
+        //             city: '武汉'
+        //         }
+        //     }
+        // };
         if (!l || !l.latitude || !l.longitude) {
             reject();
         }
-        resolve(addressRes);
+        // resolve(addressRes);
         qqmapsdk.reverseGeocoder({
             location: {
-                latitude: locats.latitude,
-                longitude: locats.longitude
+                latitude: l.latitude,
+                longitude: l.longitude
             },
             success: (res) => {
                 resolve(res);

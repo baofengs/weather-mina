@@ -1,0 +1,45 @@
+.cmp-air {
+    /* font-size: 18px; */
+}
+
+.cmp-air-aqi {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 25rpx;
+}
+
+.cmp-air-aqi-info {
+    font-size: 50px;
+    line-height: 1;
+    vertical-align: bottom;
+}
+
+.cmp-air-aqi-quality {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.cmp-air-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20rpx;
+}
+
+.cmp-air-content {
+    display: flex;
+    width: calc(50%);
+    justify-content: space-between;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #212121;
+}
+
+.cmp-air-label {
+    color: #757575;
+}
+
+.sub {
+    font-size: 10px;
+}
