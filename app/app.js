@@ -50,7 +50,6 @@ const getHourly = (city) => {
 
 app.get('/all', function (req, res) {
     const city = req.query.city || 'beijing';
-    console.log(req.query);
     Promise.all([getWeather(city), getHourly(city)]).then(data => {
         res.send({
             code: 0,
@@ -63,11 +62,9 @@ app.get('/all', function (req, res) {
 
 app.get('/', function (req, res) {
     res.set('Content-type', 'application/json;utf-8');
-    console.log(req.query);
     const city = req.query.city || 'beijing';
     const url = 'http://weixin.jirengu.com/weather?key=study_javascript_in_jirengu.com&location=' + encodeURIComponent(city)
     const sreq = superagent.get(url);
-    console.log('sreq: ', sreq);
     sreq.pipe(res);
     sreq.on('end', function () {
     });
