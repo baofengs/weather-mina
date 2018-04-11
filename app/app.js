@@ -28,7 +28,7 @@ const getWeather = (city) => {
     return getJson({
         host: 'weixin.jirengu.com',
         port: 80,
-        path: '/weather?key=study_javascript_in_jirengu.com&location=' + city,
+        path: '/weather?key=study_javascript_in_jirengu.com&location=' + encodeURIComponent(city),
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ const getHourly = (city) => {
     return getJson({
         host: 'weixin.jirengu.com',
         port: 80,
-        path: '/weather/future24h?key=study_javascript_in_jirengu.com&location=' + city,
+        path: '/weather/future24h?key=study_javascript_in_jirengu.com&location=' + encodeURIComponent(city),
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -50,6 +50,7 @@ const getHourly = (city) => {
 
 app.get('/all', function (req, res) {
     const city = req.query.city || 'beijing';
+    console.log(req.query);
     Promise.all([getWeather(city), getHourly(city)]).then(data => {
         res.send({
             code: 0,
@@ -62,6 +63,7 @@ app.get('/all', function (req, res) {
 
 app.get('/', function (req, res) {
     res.set('Content-type', 'application/json;utf-8');
+    console.log(req.query);
     const city = req.query.city || 'beijing';
     const url = 'http://weixin.jirengu.com/weather?key=study_javascript_in_jirengu.com&location=' + encodeURIComponent(city)
     const sreq = superagent.get(url);
